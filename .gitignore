@@ -5,3 +5,4 @@ __pycache__
 circuitpython/boot_out.txt
 circuitpython/.*
 circuitpython/lib
+python-env/
