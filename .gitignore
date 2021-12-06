@@ -1,0 +1,7 @@
+*.pyc
+__pycache__
+*.sh
+*.mpy
+circuitpython/boot_out.txt
+circuitpython/.*
+circuitpython/lib
