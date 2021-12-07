@@ -54,7 +54,7 @@ def process_hid(bthid_srv):
                     else:
                         buttons = utils.clear_bit(buttons, i)
 
-            if do_send:
+            if do_send and time.time() - last_sent > 0.1:
                     state = bytearray()
                     state.extend(struct.pack("B", 0xA1))  # this is an input report
                     state.extend(struct.pack("b", x))  # X-axis between -127 and 127
