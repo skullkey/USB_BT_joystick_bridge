@@ -11,7 +11,7 @@ import time
 
 import pygame
 
-TIMEOUT = 60
+TIMEOUT = 600
 
 
 
