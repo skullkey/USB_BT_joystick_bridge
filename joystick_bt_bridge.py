@@ -6,11 +6,12 @@ from dbus.mainloop.glib import DBusGMainLoop
 
 import struct
 import utils
+import time
 
 
 import pygame
 
-
+TIMEOUT = 60
 
 
 
@@ -23,6 +24,8 @@ def process_hid(bthid_srv):
 
         buttons =  0x00  # all buttons off at start, only supporting 8 buttons
         NUM_BUTTONS = 8  # using an 8 bit unsigned char
+
+        last_sent = time.time()
 
         while True:
             pygame.event.pump()
@@ -61,6 +64,10 @@ def process_hid(bthid_srv):
                     state.extend(struct.pack("B", buttons))  # unsigned char representing 8 buttons
                     bthid_srv.send(state)
                     last_x, last_y, last_a, last_b = x, y, a, b
+                    last_sent = time.time()
+
+            if time.time() - last_sent > TIMEOUT:
+                break
 
 
 
