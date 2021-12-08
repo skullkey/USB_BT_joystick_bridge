@@ -52,7 +52,7 @@ Update Bluetooth service
 ==
 on Ubuntu 20.04, the bluetooth.service needed to be modified to include the **input** module:
 
-Edit bluetooth.service 
+Edit bluetooth.service (location of this file differs by distribution and assumes systemd)
 
 ```
 sudo nano /usr/lib/systemd/system/bluetooth.service
